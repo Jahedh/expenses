@@ -30,6 +30,7 @@ for($i = 1; $i <= 12; $i++){
     $excelArray[$i] = [$monthName,$firstWorkingDay,$midMonth,$lastWorkingDay];
 }
 
+//could create a factory depending on the extension chosen on front end to instantiate the correct export class.
+
 $export = new CSVExport();
 $export->export($excelArray, $filename);
-//$expenses->arrayToCSV($excelArray, $filename);
