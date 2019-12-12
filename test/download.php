@@ -7,6 +7,7 @@
  */
 
 include __DIR__ . "/Expenses.php";
+include __DIR__ . "/CSVExport.php";
 
 $filename = $_POST['filename'];
 $year = (isset($_POST['year']) ? $year = $_POST['year'] : null);
@@ -29,4 +30,6 @@ for($i = 1; $i <= 12; $i++){
     $excelArray[$i] = [$monthName,$firstWorkingDay,$midMonth,$lastWorkingDay];
 }
 
-$expenses->arrayToCSV($excelArray, $filename);
+$export = new CSVExport();
+$export->export($excelArray, $filename);
+//$expenses->arrayToCSV($excelArray, $filename);
